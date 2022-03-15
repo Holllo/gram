@@ -1,0 +1,69 @@
+{
+  "name": "@holllo/gram",
+  "description": "Opinionated component library using HTM & Preact.",
+  "license": "GPL-3.0-or-later",
+  "version": "0.0.0",
+  "author": "Holllo <helllo@holllo.cc>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Holllo/gram"
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "pnpm test && pnpm build",
+    "test": "xo && tsc --noEmit && c8 ava",
+    "test:snapshots": "ava --update-snapshots"
+  },
+  "devDependencies": {
+    "ava": "^4.0.1",
+    "c8": "^7.11.0",
+    "htm": "^3.1.0",
+    "preact": "^10.6.6",
+    "preact-render-to-string": "^5.1.20",
+    "ts-node": "^10.6.0",
+    "typescript": "^4.6.2",
+    "xo": "^0.48.0"
+  },
+  "peerDependencies": {
+    "htm": "3.x",
+    "preact": "10.x"
+  },
+  "type": "module",
+  "main": "build/source/gram.js",
+  "types": "build/source/gram.d.ts",
+  "files": [
+    "build/source/",
+    "package.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "ava": {
+    "extensions": {
+      "ts": "module"
+    },
+    "files": [
+      "tests/**/*.ts"
+    ],
+    "nodeArguments": [
+      "--loader=ts-node/esm",
+      "--no-warnings"
+    ]
+  },
+  "c8": {
+    "100": true,
+    "all": true,
+    "include": [
+      "source",
+      "tests"
+    ],
+    "reportDir": "coverage",
+    "reporter": [
+      "text",
+      "html"
+    ]
+  },
+  "xo": {
+    "prettier": true,
+    "space": true
+  }
+}
