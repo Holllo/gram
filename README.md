@@ -17,6 +17,7 @@ pnpm add @holllo/gram htm preact
 
 ## Components
 
+* [ConfirmButton](source/buttons/confirm-button.ts)
 * [PrivacyLink](source/links/privacy-link.ts)
 
 ## License

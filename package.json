@@ -15,6 +15,7 @@
     "test:snapshots": "ava --update-snapshots"
   },
   "devDependencies": {
+    "@happy-dom/global-registrator": "^2.47.3",
     "ava": "^4.0.1",
     "c8": "^7.11.0",
     "htm": "^3.1.0",
