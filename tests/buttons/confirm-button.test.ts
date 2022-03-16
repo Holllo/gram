@@ -4,6 +4,7 @@ import {html} from 'htm/preact';
 import {render} from 'preact';
 
 import {ConfirmButton, ConfirmButtonProps} from '../../source/gram.js';
+import {sleep} from '../utilities.js';
 
 test.before(() => {
   GlobalRegistrator.register();
@@ -39,11 +40,3 @@ test('ConfirmButton', async (t) => {
   t.snapshot(buttonElement.outerHTML, 'Confirm state');
   buttonElement.click();
 });
-
-const sleep = async (timeout = 250): Promise<void> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, timeout);
-  });
-};
