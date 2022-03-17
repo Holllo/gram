@@ -37,7 +37,7 @@ test('FeedbackButton', async (t) => {
   t.snapshot(buttonElement.outerHTML, 'Feedback state');
   buttonElement.click();
 
-  await sleep(props.timeout);
+  await sleep(props.timeout * 1.25);
 
   t.snapshot(buttonElement.outerHTML, 'Back to default state');
 });
