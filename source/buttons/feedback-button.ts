@@ -37,8 +37,10 @@ export class FeedbackButton extends Component<
     };
   }
 
-  click = (event: MouseEvent) => {
-    this.props.click(event);
+  click = async (event: MouseEvent) => {
+    if ((await this.props.click(event)) === false) {
+      return;
+    }
 
     let {timeoutHandle} = this.state;
     if (timeoutHandle !== undefined) {
