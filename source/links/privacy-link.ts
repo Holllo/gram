@@ -5,9 +5,8 @@ import {Component, ComponentChildren, VNode} from 'preact';
  * Component properties for {@linkcode PrivacyLink}.
  */
 export type PrivacyLinkProps = {
+  attributes: Record<string, unknown>;
   children: ComponentChildren;
-  class: string;
-  href: string;
 };
 
 /**
@@ -18,8 +17,7 @@ export type PrivacyLinkProps = {
 export class PrivacyLink extends Component<PrivacyLinkProps> {
   render(): VNode {
     const props: Record<string, string> = {
-      class: this.props.class,
-      href: this.props.href,
+      ...this.props.attributes,
       rel: 'noopener noreferrer',
       target: '_blank',
     };
