@@ -14,13 +14,13 @@ test('ConfirmButton', async (t) => {
   t.plan(3);
 
   const props: ConfirmButtonProps = {
+    attributes: {
+      id: 'confirm-button',
+    },
     class: 'button',
     click: (event) => t.true(event !== undefined),
     confirmClass: 'confirm',
     confirmText: 'Confirm Button',
-    extraAttributes: {
-      id: 'confirm-button',
-    },
     preventDefault: true,
     text: 'Button',
     timeout: 1000,

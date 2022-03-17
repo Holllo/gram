@@ -5,11 +5,11 @@ import {Component, VNode} from 'preact';
  * Component properties for {@linkcode ConfirmButton}.
  */
 export type ConfirmButtonProps = {
+  attributes: Record<string, unknown>;
   class: string;
   click: (event: MouseEvent) => unknown;
   confirmClass: string;
   confirmText: string;
-  extraAttributes: Record<string, string>;
   preventDefault: boolean;
   text: string;
   timeout: number;
@@ -76,11 +76,7 @@ export class ConfirmButton extends Component<
     }
 
     return html`
-      <button
-        ...${this.props.extraAttributes}
-        ...${props}
-        onclick=${this.click}
-      >
+      <button ...${this.props.attributes} ...${props} onclick=${this.click}>
         ${text}
       </button>
     `;

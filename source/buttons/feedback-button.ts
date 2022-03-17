@@ -5,8 +5,8 @@ import {Component, VNode} from 'preact';
  * Component properties for {@linkcode FeedbackButton}.
  */
 export type FeedbackButtonProps = {
+  attributes: Record<string, unknown>;
   click: (event: MouseEvent) => unknown;
-  extraAttributes: Record<string, string>;
   feedbackText: string;
   text: string;
   timeout: number;
@@ -60,7 +60,7 @@ export class FeedbackButton extends Component<
 
   render(): VNode {
     return html`
-      <button ...${this.props.extraAttributes} onclick=${this.click}>
+      <button ...${this.props.attributes} onclick=${this.click}>
         ${this.state.currentText}
       </button>
     `;

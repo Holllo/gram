@@ -14,10 +14,10 @@ test('FeedbackButton', async (t) => {
   t.plan(5);
 
   const props: FeedbackButtonProps = {
-    click: (event) => t.true(event !== undefined),
-    extraAttributes: {
+    attributes: {
       id: 'feedback-button',
     },
+    click: (event) => t.true(event !== undefined),
     feedbackText: 'Feedback Example',
     text: 'Example',
     timeout: 1000,
