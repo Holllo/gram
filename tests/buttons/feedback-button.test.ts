@@ -11,7 +11,7 @@ test.before(() => {
 });
 
 test('FeedbackButton', async (t) => {
-  t.plan(5);
+  t.plan(7);
 
   const props: FeedbackButtonProps = {
     attributes: {
@@ -23,7 +23,32 @@ test('FeedbackButton', async (t) => {
     timeout: 1000,
   };
 
-  render(html`<${FeedbackButton} ...${props} />`, document);
+  const noFeedbackProps: FeedbackButtonProps = {
+    ...props,
+    attributes: {
+      id: 'no-feedback-button',
+    },
+    click(event) {
+      props.click(event);
+      return false;
+    },
+  };
+
+  render(
+    html`
+      <${FeedbackButton} ...${props} />
+      <${FeedbackButton} ...${noFeedbackProps} />
+    `,
+    document,
+  );
+
+  const noFeedbackButton = document.querySelector<HTMLButtonElement>(
+    '#no-feedback-button',
+  )!;
+
+  noFeedbackButton.click();
+  await sleep();
+  t.false(noFeedbackButton.outerHTML.includes(props.feedbackText));
 
   const buttonElement =
     document.querySelector<HTMLButtonElement>('#feedback-button')!;
